@@ -1,0 +1,208 @@
+/* Base styles ve animasyonlar */
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes floatParticle {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(180deg);
+    }
+    100% {
+        transform: translateY(0) rotate(360deg);
+    }
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body ve arka plan stilleri */
+body {
+    background-color: #36393f;
+    color: #dcddde;
+    font-family: 'Whitney', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    font-size: 15px;
+    position: relative;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(135deg, 
+            rgba(88, 101, 242, 0.1) 0%,
+            rgba(87, 96, 185, 0.1) 50%,
+            rgba(75, 82, 157, 0.1) 100%);
+    background-size: 400% 400%;
+    animation: gradientFlow 15s ease infinite;
+    z-index: -2;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239BA1A6' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.5;
+    z-index: -1;
+}
+
+/* Dekoratif elementler */
+.background-particle {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.particle-1 {
+    top: 10%;
+    left: 10%;
+    animation: floatParticle 8s ease-in-out infinite;
+}
+
+.particle-2 {
+    top: 20%;
+    right: 15%;
+    animation: floatParticle 12s ease-in-out infinite;
+}
+
+.particle-3 {
+    bottom: 15%;
+    left: 20%;
+    animation: floatParticle 10s ease-in-out infinite;
+}
+
+/* Ana içerik konteyner */
+.transcript-content {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background: rgba(47, 49, 54, 0.95);
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 1;
+}
+
+/* Message styles */
+.discord-message {
+    display: flex;
+    padding: 10px 20px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    background: rgba(47, 49, 54, 0.7);
+    backdrop-filter: blur(5px);
+    transition: background-color 0.2s ease;
+}
+
+.discord-message:hover {
+    background: rgba(50, 53, 59, 0.9);
+}
+
+/* Diğer stiller aynı kalacak, sadece bazı ince ayarlar */
+.message-content {
+    flex: 1;
+    min-width: 0;
+    background: transparent;
+}
+
+.system-message {
+    background: rgba(47, 49, 54, 0.8);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Embed styles güncelleme */
+.embed {
+    background: rgba(47, 49, 54, 0.8);
+    border-left: 4px solid;
+    backdrop-filter: blur(5px);
+}
+
+/* Scrollbar styles update */
+::-webkit-scrollbar-track {
+    background: rgba(47, 49, 54, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(32, 34, 37, 0.8);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(46, 51, 56, 0.9);
+}
+
+/* Mobile responsive updates */
+@media (max-width: 768px) {
+    .transcript-content {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    .background-particle {
+        display: none; /* Mobile'da particles'ları gizle */
+    }
+}
+
+/* Mevcut diğer stiller aynen korunacak */
+.message-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.message-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.message-author {
+    color: white;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.message-timestamp {
+    color: #72767d;
+    font-size: 0.75rem;
+}
+
+.message-text {
+    color: #dcddde;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    line-height: 1.375rem;
+    font-weight: 400;
+}

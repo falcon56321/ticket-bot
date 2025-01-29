@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discord Ticket Transcript">
+    <meta name="theme-color" content="#5865F2">
+    <title>ticket-ati242 - Transcript</title>
+
+    <!-- Discord font -->
+    <link href="https://fonts.googleapis.com/css2?family=Whitney:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles/transcript.css">
+<style>/* Base styles ve animasyonlar */
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes floatParticle {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(180deg);
+    }
+    100% {
+        transform: translateY(0) rotate(360deg);
+    }
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body ve arka plan stilleri */
+body {
+    background-color: #36393f;
+    color: #dcddde;
+    font-family: 'Whitney', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    font-size: 15px;
+    position: relative;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(135deg, 
+            rgba(88, 101, 242, 0.1) 0%,
+            rgba(87, 96, 185, 0.1) 50%,
+            rgba(75, 82, 157, 0.1) 100%);
+    background-size: 400% 400%;
+    animation: gradientFlow 15s ease infinite;
+    z-index: -2;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239BA1A6' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.5;
+    z-index: -1;
+}
+
+/* Dekoratif elementler */
+.background-particle {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.particle-1 {
+    top: 10%;
+    left: 10%;
+    animation: floatParticle 8s ease-in-out infinite;
+}
+
+.particle-2 {
+    top: 20%;
+    right: 15%;
+    animation: floatParticle 12s ease-in-out infinite;
+}
+
+.particle-3 {
+    bottom: 15%;
+    left: 20%;
+    animation: floatParticle 10s ease-in-out infinite;
+}
+
+/* Ana içerik konteyner */
+.transcript-content {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background: rgba(47, 49, 54, 0.95);
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 1;
+}
+
+/* Message styles */
+.discord-message {
+    display: flex;
+    padding: 10px 20px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    background: rgba(47, 49, 54, 0.7);
+    backdrop-filter: blur(5px);
+    transition: background-color 0.2s ease;
+}
+
+.discord-message:hover {
+    background: rgba(50, 53, 59, 0.9);
+}
+
+/* Diğer stiller aynı kalacak, sadece bazı ince ayarlar */
+.message-content {
+    flex: 1;
+    min-width: 0;
+    background: transparent;
+}
+
+.system-message {
+    background: rgba(47, 49, 54, 0.8);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Embed styles güncelleme */
+.embed {
+    background: rgba(47, 49, 54, 0.8);
+    border-left: 4px solid;
+    backdrop-filter: blur(5px);
+}
+
+/* Scrollbar styles update */
+::-webkit-scrollbar-track {
+    background: rgba(47, 49, 54, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(32, 34, 37, 0.8);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(46, 51, 56, 0.9);
+}
+
+/* Mobile responsive updates */
+@media (max-width: 768px) {
+    .transcript-content {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    .background-particle {
+        display: none; /* Mobile'da particles'ları gizle */
+    }
+}
+
+/* Mevcut diğer stiller aynen korunacak */
+.message-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.message-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.message-author {
+    color: white;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.message-timestamp {
+    color: #72767d;
+    font-size: 0.75rem;
+}
+
+.message-text {
+    color: #dcddde;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    line-height: 1.375rem;
+    font-weight: 400;
+}</style></head>
+<body>
+    <!-- Background particles -->
+    <div class="background-particle particle-1"></div>
+    <div class="background-particle particle-2"></div>
+    <div class="background-particle particle-3"></div>
+
+    <div class="transcript-content">
+        <!-- Transcript başlık bilgileri -->
+        <div class="system-message">
+            <div>Ticket: ticket-ati242</div>
+            <div>Oluşturulma Tarihi: 29/01/2025 20:24</div>
+            <div>Ticket Sahibi: ati242</div>
+        </div>
+
+        <!-- Ana transcript içeriği -->
+        <html><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="icon" type="image/png" href="https://cdn.discordapp.com/icons/1317245203429589053/acd1080c261d0a740dc65cc0e150ea07.png?size=16"/><title>ticket-ati242</title><script>document.addEventListener("click",t=>{let e=t.target;if(!e)return;let o=e?.getAttribute("data-goto");if(o){let r=document.getElementById(`m-${o}`);r?(r.scrollIntoView({behavior:"smooth",block:"center"}),r.style.backgroundColor="rgba(148, 156, 247, 0.1)",r.style.transition="background-color 0.5s ease",setTimeout(()=>{r.style.backgroundColor="transparent"},1e3)):console.warn("Message ${goto} not found.")}});</script><script>window.$discordMessage={profiles:{"1318678296816259162":{"author":"testiko","avatar":"https://cdn.discordapp.com/embed/avatars/2.png","roleColor":"#000000","bot":true,"verified":false}}}</script><script type="module" src="https://cdn.jsdelivr.net/npm/@derockdev/discord-components-core@^3.6.1/dist/derockdev-discord-components-core/derockdev-discord-components-core.esm.js"></script></head><body style="margin:0;min-height:100vh"><discord-messages style="min-height:100vh"><discord-header guild="Ati kullanıcısının sunucusuaaa" channel="ticket-ati242" icon="https://cdn.discordapp.com/icons/1317245203429589053/acd1080c261d0a740dc65cc0e150ea07.webp?size=128">This is the start of #ticket-ati242 channel.</discord-header><discord-message id="m-1334198062947635223" timestamp="2025-01-29T16:26:46.408Z" edited="false" highlight="false" profile="1318678296816259162"><discord-embed embed-title="Ticket Oluşturuldu" slot="embeds" author-image="https://media.discordapp.net/attachments/1099087070150021231/1331040224330911799/vlife.png?ex=679b600f&amp;is=679a0e8f&amp;hm=4423682c83f2855fc7655ca8aa26509fe7a1e97edc3e64b422950bf28c4080ea&amp;" author-name="VLife Roleplay" color="#23ff00"><discord-embed-description slot="description">Merhaba <discord-mention type="user">Ati</discord-mention>!<br/>                            Ticket&#x27;ınız başarıyla oluşturuldu.<br/>                            Lütfen sorununuzu detaylı bir şekilde açıklayın.</discord-embed-description><discord-embed-footer slot="footer" timestamp="2025-01-29T16:26:45.577000+00:00">Ati Development</discord-embed-footer></discord-embed><discord-attachments slot="components"><discord-action-row></discord-action-row></discord-attachments></discord-message><div style="text-align:center;width:100%">Exported 1 message. </div></discord-messages></body></html>
+
+        <!-- Footer bilgileri -->
+        <div class="system-message">
+            <div>Ati kullanıcısının sunucusuaaa sunucusu transcript kaydı</div>
+            <div>Powered by Ati Development</div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../scripts/transcript.js"></script>
+<script>document.addEventListener('DOMContentLoaded', function() {
+    initializeTranscript();
+});
+
+function initializeTranscript() {
+    setupVideos();
+    setupImageHandling();
+    setupTimestamps();
+}
+
+function setupVideos() {
+    const videos = document.querySelectorAll('video');
+    videos.forEach(video => {
+        // Add required Video.js attributes
+        video.classList.add('video-js', 'vjs-theme-discord');
+        video.setAttribute('data-setup', '{}');
+        
+        // Create container structure before initializing Video.js
+        const container = createVideoContainer(video);
+        
+        // Initialize Video.js
+        const player = videojs(video, {
+            controls: true,
+            fluid: true,
+            preload: 'metadata',
+            playbackRates: [0.5, 1, 1.5, 2],
+            controlBar: {
+                children: [
+                    'playToggle',
+                    'volumePanel',
+                    'currentTimeDisplay',
+                    'timeDivider',
+                    'durationDisplay',
+                    'progressControl',
+                    'playbackRateMenuButton',
+                    'fullscreenToggle'
+                ]
+            },
+            sources: [{
+                src: video.getAttribute('src'),
+                type: video.getAttribute('type') || 'video/mp4'
+            }]
+        });
+
+        // Add download controls
+        addVideoControls(container, video);
+
+        // Error handling
+        player.on('error', function() {
+            handleVideoError(video);
+        });
+
+        // Ready event
+        player.ready(function() {
+            this.controlBar.show();
+        });
+
+        // Fix for mobile playback
+        video.setAttribute('playsinline', '');
+        video.setAttribute('webkit-playsinline', '');
+    });
+}
+
+function createVideoContainer(video) {
+    const container = document.createElement('div');
+    container.className = 'video-container';
+    
+    const wrapper = document.createElement('div');
+    wrapper.className = 'video-wrapper';
+    
+    // Video elementini wrapper'a taşı
+    video.parentNode.insertBefore(container, video);
+    wrapper.appendChild(video);
+    container.appendChild(wrapper);
+    
+    return container;
+}
+
+function addVideoControls(container, video) {
+    const controls = document.createElement('div');
+    controls.className = 'download-controls';
+    
+    // Download butonu
+    const downloadBtn = document.createElement('button');
+    downloadBtn.className = 'download-button';
+    downloadBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 12l-4-4h3V3h2v5h3L8 12z"/><path d="M14 13v1H2v-1h12z"/></svg> İndir';
+    downloadBtn.onclick = () => downloadVideo(video.querySelector('source').src);
+    
+    controls.appendChild(downloadBtn);
+    container.appendChild(controls);
+}
+
+function downloadVideo(url) {
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = '';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
+function handleVideoError(video) {
+    const container = video.closest('.video-container');
+    if (container) {
+        const errorMsg = document.createElement('div');
+        errorMsg.className = 'video-error';
+        errorMsg.textContent = 'Video yüklenirken bir hata oluştu.';
+        container.appendChild(errorMsg);
+    }
+}
+
+function setupImageHandling() {
+    const images = document.querySelectorAll('img:not(.message-avatar)');
+    images.forEach(img => {
+        img.addEventListener('error', handleImageError);
+        makeImageClickable(img);
+    });
+}
+
+function handleImageError(event) {
+    const img = event.target;
+    img.src = '../assets/error-image.png';
+    img.alt = 'Resim yüklenemedi';
+}
+
+function makeImageClickable(img) {
+    if (!img.closest('a')) {
+        const link = document.createElement('a');
+        link.href = img.src;
+        link.target = '_blank';
+        img.parentNode.insertBefore(link, img);
+        link.appendChild(img);
+    }
+}
+
+function setupTimestamps() {
+    const timestamps = document.querySelectorAll('.message-timestamp');
+    timestamps.forEach(convertTimestamp);
+}
+
+function convertTimestamp(element) {
+    const timestamp = element.getAttribute('data-timestamp');
+    if (timestamp) {
+        const date = new Date(parseInt(timestamp));
+        element.textContent = formatDate(date);
+    }
+}
+
+function formatDate(date) {
+    const today = new Date();
+    const yesterday = new Date(today);
+    yesterday.setDate(yesterday.getDate() - 1);
+
+    if (isSameDay(date, today)) {
+        return `Bugün ${formatTime(date)}`;
+    } else if (isSameDay(date, yesterday)) {
+        return `Dün ${formatTime(date)}`;
+    } else {
+        return `${date.getDate().toString().padStart(2, '0')}.${(date.getMonth() + 1).toString().padStart(2, '0')}.${date.getFullYear()} ${formatTime(date)}`;
+    }
+}
+
+function formatTime(date) {
+    return `${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`;
+}
+
+function isSameDay(date1, date2) {
+    return date1.getFullYear() === date2.getFullYear() &&
+           date1.getMonth() === date2.getMonth() &&
+           date1.getDate() === date2.getDate();
+}</script></body>
+</html>
